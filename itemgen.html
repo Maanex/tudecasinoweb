@@ -1,3 +1,127 @@
+<html>
+<head>
+
+</head>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
 <body>
-SOON (tm)
+<div id="frame">
+    <div id="left" class="column">
+        <h1>Info</h1>
+        
+        <div class="inputdesc">Name</div>
+        <input class="txtin" type="text" placeholder="Item Name"></input>
+        
+        <div class="inputdesc">Target ID</div>
+        <input class="txtin" type="text" placeholder="item_name"></input>
+        
+        <div class="inputdesc">Description</div>
+        <textarea class="txtin" rows="10" placeholder="Es war einmal..." style="resize: vertical"></textarea>
+    </div>
+    <div id="mid" class="column">
+        <h1>Settings</h1>
+        
+    </div>
+    <div id="right" class="column">
+        <h1>Export/Inport</h1>
+        
+    </div>
+</div>
 </body>
+
+<style>
+*{
+    font-family: 'Comfortaa', 'Roboto', sans-serif;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    background: linear-gradient(45deg, rgb(131, 85, 0), rgb(68, 0, 68));
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#frame{
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background: #efefef;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    display: inline-block;
+    overflow: hidden;
+}
+
+#frame::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+h1{
+    margin: 50px 0;
+    font-size: 25pt;
+    width: 100%;
+    text-align: center;
+}
+
+.column{
+    float: left;
+    width: 33.33%;
+    height: 100%;
+}
+
+#mid::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 90%;
+    top: 5%;
+    left: 33.33%;
+    background: rgb(136, 136, 136);
+}
+
+#mid::after{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 90%;
+    top: 5%;
+    right: 33.33%;
+    background: rgb(136, 136, 136);
+}
+
+.inputdesc{
+    font-size: 15px;
+    transform: translate(6%, -5px);
+}
+
+.txtin{
+    border: 1px solid rgb(48, 48, 48);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    font-size: 17px;
+    margin: 0 5% 50px 5%;
+    width: 90%;
+    min-height: 30px;
+}
+
+</style>
+
+<script>
+
+</script>
+</html>
