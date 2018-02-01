@@ -1,8 +1,8 @@
 <html>
 <head>
-
-</head>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 
 <body>
 <div id="frame">
@@ -10,21 +10,63 @@
         <h1>Info</h1>
         
         <div class="inputdesc">Name</div>
-        <input class="txtin" type="text" placeholder="Item Name"></input>
+        <input id="item_name" class="txtin" type="text" placeholder="Item Name"></input>
         
         <div class="inputdesc">Target ID</div>
-        <input class="txtin" type="text" placeholder="item_name"></input>
+        <input id="target_id" class="txtin" type="text" placeholder="name_ohne_Leerzeichen"></input>
         
-        <div class="inputdesc">Description</div>
-        <textarea class="txtin" rows="10" placeholder="Es war einmal..." style="resize: vertical"></textarea>
+        <div class="inputdesc">Beschreibung</div>
+        <textarea id="descr" class="txtin" rows="10" placeholder="Es war einmal..." style="resize: vertical"></textarea>
     </div>
     <div id="mid" class="column">
         <h1>Settings</h1>
+		
+        <div class="inputdesc">Seltenheit</div>
+        <select id="rarity">
+		  <option value="0">Müll</option>
+		  <option value="1">Gewöhnlich</option>
+		  <option value="2">Selten</option>
+		  <option value="3">Episch</option>
+		  <option value="4">Legendär</option>
+		  <option value="5">Mythisch</option>
+		</select>
         
+		<label class="checkboxcontainer">Käuflich
+		  <input id="ba" type="checkbox">
+		  <span class="checkmark"></span>
+		</label>
+        
+		<label class="checkboxcontainer">Verkaufbar
+		  <input id="bb" type="checkbox" checked> 
+		  <span class="checkmark"></span>
+		</label>
+        
+		<label class="checkboxcontainer">In Lootboxen
+		  <input id="bc" type="checkbox" checked>
+		  <span class="checkmark"></span>
+		</label>
+        
+		<label class="checkboxcontainer">Unikat
+		  <input id="bd" type="checkbox">
+		  <span class="checkmark"></span>
+        </label>
+        
+        <div style="width: 100%; height: 40px"></div>
+		
+        <div class="inputdesc">Ankaufspreis</div>
+        <input id="buyprice" class="txtin" type="number" placeholder="30"></input>
+
+        <div class="inputdesc">Verkaufspreis</div>
+        <input id="sellprice" class="txtin" type="number" placeholder="20"></input>
     </div>
     <div id="right" class="column">
         <h1>Export/Import</h1>
+		
+		<button id="export">Export</button>
+		<button id="import" style="margin: 20px 10% 20px 5%;">Import</button>
         
+        <div class="inputdesc">JSON</div>
+        <textarea id="json" class="txtin" rows="10" placeholder="Push export button above or paste json here and click import." style="resize: vertical"></textarea>
     </div>
 </div>
 </body>
@@ -77,6 +119,89 @@ h1{
     text-align: center;
 }
 
+button{
+	display: inline-block;
+	font-size: 22px;
+	background: white;
+    padding: 10px;
+	cursor: pointer;
+	user-select: none;
+	width: 34%;
+	margin: 0 5% 40px 10%;
+    border: 1px solid rgb(48, 48, 48);
+	border-radius: 999px;
+	outline: none;
+	transition: all .2s ease;
+}
+
+button:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+select{
+    border: 1px solid rgb(48, 48, 48);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    font-size: 17px;
+    margin: 0 5% 50px 5%;
+    width: 90%;
+    min-height: 30px;
+}
+
+.checkboxcontainer {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	font-size: 22px;
+	user-select: none;
+	width: 90%;
+    outline: none;
+    padding: 5px 5px 5px 35px;
+    margin: 0 5% 20px 5%;
+}
+.checkboxcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  transform: translateY(3px);
+	border-radius: 3px;
+    border: 1px solid rgb(48, 48, 48);
+}
+.checkboxcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.checkboxcontainer input:checked ~ .checkmark {
+  background-color: #3fcc8f;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkboxcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkboxcontainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .column{
     float: left;
     width: 33.33%;
@@ -122,6 +247,36 @@ h1{
 </style>
 
 <script>
+$("#export").click(function(){
+var item = {
+	name: $("#item_name").val(),
+	target_id: $("#target_id").val(),
+	desc: $("#descr").val(),
+	rarity: parseInt($("#rarity").find(":selected").val()),
+    buyPrice: parseInt($("#buyprice").val() == "" ? 0 : $("#buyprice").val()),
+    sellPrice: parseInt($("#sellprice").val() == "" ? 0 : $("#sellprice").val()),
+    values: ($("#ba").prop('checked') ? "1" : "0") + "" + ($("#bb").prop('checked') ? "1" : "0") + "" + ($("#bc").prop('checked') ? "1" : "0") + "" + ($("#bd").prop('checked') ? "1" : "0")
+}
+if(item.name == "") item.name = "Item";
+if(item.target_id == "") item.target_id = "item";
+if(item.desc == "") item.desc = "No Description";
+$("#json").val(JSON.stringify(item));
+});
+
+
+$("#import").click(function(){
+var item = JSON.parse($("#json").val());
+$("#item_name").val(item.name);
+$("#target_id").val(item.target_id);
+$("#descr").val(item.desc);
+$("#rarity").val(item.rarity);
+$("#buyprice").val(item.buyPrice);
+$("#sellprice").val(item.sellPrice);
+$("#ba").prop('checked', item.values.split("")[0] == "0" ? false : true);
+$("#bb").prop('checked', item.values.split("")[1] == "0" ? false : true);
+$("#bc").prop('checked', item.values.split("")[2] == "0" ? false : true);
+$("#bd").prop('checked', item.values.split("")[3] == "0" ? false : true);
+});
 
 </script>
 </html>
