@@ -36,6 +36,15 @@
 		  <option value="4">Legendär</option>
 		  <option value="5">Mythisch</option>
 		</select>
+		
+        <div class="inputdesc">Kategorie</div>
+        <select id="category">
+		  <option value="0">Zeugs</option>
+		  <option value="1">Lootbox</option>
+		  <option value="2">Trank</option>
+		  <option value="3">Rune</option>
+		  <option value="4">Abstrakt</option>
+		</select>
         
 		<label class="checkboxcontainer">Käuflich
 		  <input id="ba" type="checkbox">
@@ -277,6 +286,7 @@ var item = {
 	uuid: $("#target_id").val(),
 	desc: $("#descr").val(),
 	rarity: parseInt($("#rarity").find(":selected").val()),
+	category: parseInt($("#category").find(":selected").val()),
     buyPrice: parseInt($("#buyprice").val() == "" ? 0 : $("#buyprice").val()),
     sellPrice: parseInt($("#sellprice").val() == "" ? 0 : $("#sellprice").val()),
     values: ($("#ba").prop('checked') ? "1" : "0") + "" + ($("#bb").prop('checked') ? "1" : "0") + "" + ($("#bc").prop('checked') ? "1" : "0") + "" + ($("#bd").prop('checked') ? "1" : "0")
@@ -297,6 +307,7 @@ $("#alt").val(item.alias.join("\n"));
 $("#target_id").val(item.uuid);
 $("#descr").val(item.desc);
 $("#rarity").val(item.rarity);
+$("#category").val(item.category);
 $("#buyprice").val(item.buyPrice);
 $("#sellprice").val(item.sellPrice);
 $("#ba").prop('checked', item.values.split("")[0] == "0" ? false : true);
