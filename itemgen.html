@@ -9,11 +9,17 @@
     <div id="left" class="column">
         <h1>Info</h1>
         
-        <div class="inputdesc">Name</div>
-        <input id="item_name" class="txtin" type="text" placeholder="Item Name"></input>
+        <div class="inputdesc">Name Singular</div>
+        <input id="item_name" class="txtin" type="text" placeholder="Epische Lootbox"></input>
         
-        <div class="inputdesc">Target ID</div>
-        <input id="target_id" class="txtin" type="text" placeholder="name_ohne_Leerzeichen"></input>
+        <div class="inputdesc">Name Plural</div>
+        <input id="item_name_pl" class="txtin" type="text" placeholder="Epische Lootboxen"></input>
+        
+        <div class="inputdesc">Alternativ Bezeichnungen</div>
+        <textarea id="alt" class="txtin" rows="10" placeholder="Epic Lootbox\nEpisch Lootbox\nEpic Box\nEpische Box" style="resize: vertical"></textarea>
+        
+        <div class="inputdesc">UUID</div>
+        <input id="target_id" class="txtin" type="text" placeholder="epic_lootbox"></input>
         
         <div class="inputdesc">Beschreibung</div>
         <textarea id="descr" class="txtin" rows="10" placeholder="Es war einmal..." style="resize: vertical"></textarea>
@@ -67,6 +73,8 @@
         
         <div class="inputdesc">JSON</div>
         <textarea id="json" class="txtin" rows="10" placeholder="Push export button above or paste json here and click import." style="resize: vertical"></textarea>
+
+        <!-- TODO: Items in cookies speichern und laden können -->
     </div>
 </div>
 </body>
@@ -75,6 +83,15 @@
 *{
     font-family: 'Comfortaa', 'Roboto', sans-serif;
 }
+*::-webkit-scrollbar              { width: 7px; height: 7px; background: transparent; }
+*::-webkit-scrollbar-button       { width: 0; height: 0; background: transparent }
+*::-webkit-scrollbar-track        { background: transparent }
+*::-webkit-scrollbar-track-piece  { background: transparent }
+*::-webkit-scrollbar-thumb        { background: rgba(0,0,0,.1); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:hover  { background: rgba(0,0,0,.3); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:active  { background: rgba(0,0,0,.5); border-radius: 99px; }
+*::-webkit-scrollbar-corner       { background: transparent }
+/*::-webkit-resizer                { background: transparent }*/
 
 html{
     width: 100%;
@@ -206,6 +223,8 @@ select{
     float: left;
     width: 33.33%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #mid::before{
@@ -247,10 +266,15 @@ select{
 </style>
 
 <script>
+Array.prototype.forEach.call(document.getElementsByTagName('textarea'), function(elem) {elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');});
+
+
 $("#export").click(function(){
 var item = {
 	name: $("#item_name").val(),
-	target_id: $("#target_id").val(),
+	namep: $("#item_name_pl").val(),
+	alias: $("#alt").val() == "" ? [] : $("#alt").val().split("\n"),
+	uuid: $("#target_id").val(),
 	desc: $("#descr").val(),
 	rarity: parseInt($("#rarity").find(":selected").val()),
     buyPrice: parseInt($("#buyprice").val() == "" ? 0 : $("#buyprice").val()),
@@ -258,7 +282,8 @@ var item = {
     values: ($("#ba").prop('checked') ? "1" : "0") + "" + ($("#bb").prop('checked') ? "1" : "0") + "" + ($("#bc").prop('checked') ? "1" : "0") + "" + ($("#bd").prop('checked') ? "1" : "0")
 }
 if(item.name == "") item.name = "Item";
-if(item.target_id == "") item.target_id = "item";
+if(item.namep == "") item.namep = "Items";
+if(item.uuid == "") item.target_id = "item";
 if(item.desc == "") item.desc = "No Description";
 $("#json").val(JSON.stringify(item));
 });
@@ -267,7 +292,9 @@ $("#json").val(JSON.stringify(item));
 $("#import").click(function(){
 var item = JSON.parse($("#json").val());
 $("#item_name").val(item.name);
-$("#target_id").val(item.target_id);
+$("#item_name_pl").val(item.namep);
+$("#alt").val(item.alias.join("\n"));
+$("#target_id").val(item.uuid);
 $("#descr").val(item.desc);
 $("#rarity").val(item.rarity);
 $("#buyprice").val(item.buyPrice);
