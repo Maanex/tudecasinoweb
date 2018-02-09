@@ -47,7 +47,7 @@
             "usages": [
                 {
                     "name": "inv {seite} {@User}",
-                    "text": "Zeigt dein Inventar an. Optional: Seite, Inventar einer anderen Person"
+                    "text": "Zeigt dein Inventar an.<br>Optional: Seite, Inventar einer anderen Person"
                 }
             ]
         },
@@ -57,7 +57,7 @@
             "usages": [
                 {
                     "name": "shop {seite}",
-                    "text": "Zeigt den Shop an. Kaufen mit buy. Optional: Seite"
+                    "text": "Zeigt den Shop an. Kaufen mit buy.<br>Optional: Seite"
                 }
             ]
         },
@@ -67,7 +67,7 @@
             "usages": [
                 {
                     "name": "buy [item] {menge}",
-                    "text": "Kauft ein Item aus dem Shop. Optional: Menge an Items"
+                    "text": "Kauft ein Item aus dem Shop.<br>Optional: Menge an Items"
                 }
             ]
         },
@@ -77,7 +77,7 @@
             "usages": [
                 {
                     "name": "sell [item] {menge}",
-                    "text": "Verkauft ein Item an dem Shop. Optional: Menge an Items. Tipp: du kannst den Verkaufspreis vorher ansehen mit price"
+                    "text": "Verkauft ein Item an dem Shop.<br>Optional: Menge an Items.<br>Tipp: du kannst den Verkaufspreis vorher ansehen mit price"
                 }
             ]
         },
@@ -98,6 +98,132 @@
                 {
                     "name": "give @User [item] {menge}",
                     "text": "Gibt einem anderen User Items aus deinem Inventar."
+                }
+            ]
+        },
+        {
+            "cmd": "use",
+            "alias": "u",
+            "usages": [
+                {
+                    "name": "use [item]",
+                    "text": "Benutzt das Item. Was genau passiert ist vollkommend abhängig vom Item!"
+                }
+            ]
+        },
+        {
+            "cmd": "open",
+            "alias": "o",
+            "usages": [
+                {
+                    "name": "open [item:lootbox] {menge,max:20}",
+                    "text": "Öffnet eine Lootbox. Möchtest du mehrere des selben Typen öffnen, benutzte bitte die <i>menge</i> funktion um ratelimits zu verhindern. Danke!"
+                }
+            ]
+        },
+        {
+            "cmd": "open",
+            "alias": "o",
+            "usages": [
+                {
+                    "name": "open [item:lootbox] {menge,max:20}",
+                    "text": "Öffnet eine Lootbox. Möchtest du mehrere des selben Typen öffnen, benutzte bitte die <i>menge</i> funktion um ratelimits zu verhindern. Danke!"
+                }
+            ]
+        },
+        {
+            "cmd": "achivements",
+            "alias": "a",
+            "usages": [
+                {
+                    "name": "achivements {seite} {@User}",
+                    "text": "Zeige deine abgeschlossenen Achivements an.<br>Optional: Seite, Achivements von anderem User"
+                }
+            ]
+        },
+        {
+            "cmd": "badge",
+            "alias": "ba, badges",
+            "usages": [
+                {
+                    "name": "badge {@User}",
+                    "text": "Zeige deine Abzeichen.<br>Optional: Abzeichen von anderem User"
+                },
+                {
+                    "name": "badge display [badge]",
+                    "text": "Stelle ein Abzeichen auf deinem Profil aus!"
+                },
+                {
+                    "name": "badge info [badge]",
+                    "text": "Erhalte genauere Informationen über ein Abzeichen!"
+                }
+            ]
+        },
+        {
+            "cmd": "sets",
+            "alias": "e, itemsets",
+            "usages": [
+                {
+                    "name": "sets {seite}}",
+                    "text": "Zeige alle Itemsets von denen du mindestens ein Item schon gesammelt hast!<br>Optional: Seite"
+                },
+                {
+                    "name": "claim [set]",
+                    "text": "Löse ein Itemset ein, wenn du alle benötigten Items im Inventar hast."
+                }
+            ]
+        },
+        {
+            "cmd": "help",
+            "alias": "h",
+            "usages": [
+                {
+                    "name": "help",
+                    "text": "Gibt dir den Link für diese Seite (Bzw eine Hilfeseite)"
+                }
+            ]
+        },
+        {
+            "cmd": "advertise",
+            "alias": "ad",
+            "usages": [
+                {
+                    "name": "advertise",
+                    "text": "Zeigt die aktuelle Werbung"
+                },
+                {
+                    "name": "advertise [cookies] [text]",
+                    "text": "Ändere den aktuellen Werbe Slogan auf einen eigenen Text. Die zuletzt bezahlte menge Cookies muss dabei überboten werden. Werbung wird auch in der Mitgliederliste als <i>TudeCasino Spielt</i> angezeigt."
+                }
+            ]
+        },
+        {
+            "cmd": "cookies",
+            "alias": "c",
+            "usages": [
+                {
+                    "name": "cookies",
+                    "text": "Zeige deine Cookies an."
+                }
+            ]
+        },
+        {
+            "cmd": "credits",
+            "alias": "cr",
+            "usages": [
+                {
+                    "name": "credits",
+                    "text": "Zeige die Leute, die bei der ganzen Sache geholfen haben. Danke!"
+                }
+            ]
+        },
+        {
+            "cmd": "trash",
+            "alias": "t, müll",
+            "usages": [
+                {
+                    "name": "trash [item] {menge}",
+                    "text": "Wirft ein Item weg. Du wirst dafür nichts bekommen!<br>Optional: Menge"
                 }
             ]
         }
