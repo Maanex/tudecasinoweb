@@ -228,16 +228,6 @@
             ]
         },
         {
-            "cmd": "slotmachine",
-            "alias": "sm",
-            "usages": [
-                {
-                    "name": "Missing Information",
-                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
-                }
-            ]
-        },
-        {
             "cmd": "trade",
             "alias": "z",
             "usages": [
