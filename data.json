@@ -164,7 +164,7 @@
             "alias": "e, itemsets",
             "usages": [
                 {
-                    "name": "sets {seite}}",
+                    "name": "sets {seite}",
                     "text": "Zeige alle Itemsets von denen du mindestens ein Item schon gesammelt hast!<br>Optional: Seite"
                 },
                 {
@@ -224,6 +224,76 @@
                 {
                     "name": "trash [item] {menge}",
                     "text": "Wirft ein Item weg. Du wirst dafür nichts bekommen!<br>Optional: Menge"
+                }
+            ]
+        },
+        {
+            "cmd": "slotmachine",
+            "alias": "sm",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "slotmachine",
+            "alias": "sm",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "trade",
+            "alias": "z",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "rune",
+            "alias": "ru",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "property",
+            "alias": "y, immo",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "leaderboard",
+            "alias": "l",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
+                }
+            ]
+        },
+        {
+            "cmd": "market",
+            "alias": "m, bö, börse",
+            "usages": [
+                {
+                    "name": "Missing Information",
+                    "text": "Dieser Befehl wurde noch nicht vollständig im Spiel umgesetzt. Der Vollständigkeitshalber wird er allerding trotzdem hier aufgeführt."
                 }
             ]
         }
