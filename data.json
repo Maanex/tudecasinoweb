@@ -122,16 +122,6 @@
             ]
         },
         {
-            "cmd": "open",
-            "alias": "o",
-            "usages": [
-                {
-                    "name": "open [item:lootbox] {menge,max:20}",
-                    "text": "Öffnet eine Lootbox. Möchtest du mehrere des selben Typen öffnen, benutzte bitte die <i>menge</i> funktion um ratelimits zu verhindern. Danke!"
-                }
-            ]
-        },
-        {
             "cmd": "achivements",
             "alias": "a",
             "usages": [
