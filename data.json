@@ -1,0 +1,106 @@
+{
+    "_author": "Maanex",
+    "_copyright": "Tude 2017-2018",
+
+    "commands": [
+        {
+            "cmd": "daily",
+            "alias": "d",
+            "usages": [
+                {
+                    "name": "daily",
+                    "text": "Gibt dir deinen Daily-Reward"
+                }
+            ]
+        },
+        {
+            "cmd": "roulette",
+            "alias": "ro",
+            "usages": [
+                {
+                    "name": "roulette red/black/green [menge:cookies]",
+                    "text": "Spiele Roulette und setzte dabei eine bestimmte Menge Cookies"
+                }
+            ]
+        },
+        {
+            "cmd": "profile",
+            "alias": "p",
+            "usages": [
+                {
+                    "name": "profile",
+                    "text": "Zeigt dein Profil an."
+                },
+                {
+                    "name": "profile @User",
+                    "text": "Zeigt das Profil von einem anderen User an."
+                },
+                {
+                    "name": "profile setinfo [text]",
+                    "text": "Ändert die Information, die auf deinem Profil angezeigt wird auf [text]"
+                }
+            ]
+        },
+        {
+            "cmd": "inventory",
+            "alias": "i, inv, items",
+            "usages": [
+                {
+                    "name": "inv {seite} {@User}",
+                    "text": "Zeigt dein Inventar an. Optional: Seite, Inventar einer anderen Person"
+                }
+            ]
+        },
+        {
+            "cmd": "shop",
+            "alias": "s",
+            "usages": [
+                {
+                    "name": "shop {seite}",
+                    "text": "Zeigt den Shop an. Kaufen mit buy. Optional: Seite"
+                }
+            ]
+        },
+        {
+            "cmd": "buy",
+            "alias": "b",
+            "usages": [
+                {
+                    "name": "buy [item] {menge}",
+                    "text": "Kauft ein Item aus dem Shop. Optional: Menge an Items"
+                }
+            ]
+        },
+        {
+            "cmd": "sell",
+            "alias": "se",
+            "usages": [
+                {
+                    "name": "sell [item] {menge}",
+                    "text": "Verkauft ein Item an dem Shop. Optional: Menge an Items. Tipp: du kannst den Verkaufspreis vorher ansehen mit price"
+                }
+            ]
+        },
+        {
+            "cmd": "price",
+            "alias": "pr",
+            "usages": [
+                {
+                    "name": "price [item]",
+                    "text": "Zeigt den Preis und weitere nützliche Infos über ein Item an."
+                }
+            ]
+        },
+        {
+            "cmd": "give",
+            "alias": "g",
+            "usages": [
+                {
+                    "name": "give @User [item] {menge}",
+                    "text": "Gibt einem anderen User Items aus deinem Inventar."
+                }
+            ]
+        }
+    ],
+    "items": []
+}
