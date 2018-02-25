@@ -1,3 +1,269 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Tude Casino Wiki</title>
+</head>
 <body>
-SOON (tm)
+<div id="bgdarken"></div>
+
+<div id="header">
+Tude Casino Wiki
+</div>
+<div id="tabs">
+    <a href="#commands" onclick="changeTab(0)">Befehle</a>
+    <a href="#itemsets" onclick="changeTab(1)">Item Sets</a>
+    <a href="#achivements" onclick="changeTab(2)">Achivements</a>
+    <a href="#badges" onclick="changeTab(3)">Abzeichen</a>
+</div>
+<div id="page">
+    <input type="text" id="search" placeholder="Suche nach Befehlen"></input>
+    
+    <div id="elements">
+        <div class="element">
+            <!-- -->    
+        </div>
+    </div>
+</div>
 </body>
+<style>
+:root{
+    --bg: #191d25;
+    --color-cmd: #abd660;
+    --color-itemsets: #6060d6;
+    --color-achivements: #d69160;
+    --color-badges: #d6608d;
+}
+*{font-family: 'Comfortaa', 'Roboto', sans-serif;}
+*::-webkit-scrollbar              { width: 7px; height: 7px; background: var(--bg); }
+*::-webkit-scrollbar-button       { width: 0; height: 0; background: var(--bg) }
+*::-webkit-scrollbar-track        { background: var(--bg) }
+*::-webkit-scrollbar-track-piece  { background: var(--bg) }
+*::-webkit-scrollbar-thumb        { background: rgba(0,0,0,.3); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:hover  { background: rgba(0,0,0,.5); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:active  { background: rgba(0,0,0,.7); border-radius: 99px; }
+*::-webkit-scrollbar-corner       { background: var(--bg) }
+/*::-webkit-resizer                { background: var(--bg) }*/
+
+body{
+    background: url(https://images4.alphacoders.com/280/thumb-1920-280558.jpg);
+    background-position: 50% 0;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden auto;
+    background-attachment: fixed;
+}
+#bgdarken{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.8);z-index: -100;}
+
+#header{
+    height: 200px;
+    color: #eee;
+    font-size: 100px;
+    width: 100%;
+    text-align: center;
+    font-variant: small-caps;
+    padding-top: 100px;
+}
+#tabs{
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#tabs>a{
+    display: inline-block;
+    width: 24%;
+    margin: 0 .4%;
+    padding: 15px 0;
+    height: 100%;
+    background: var(--bg);
+    position: relative;
+    z-index: 1;
+    color: var(--color-cmd);
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 10px;
+    transition: .3s ease all;
+}
+#tabs>a:hover{transform: translateY(-10px);}
+#tabs>a:nth-child(2){color: var(--color-itemsets)}
+#tabs>a:nth-child(3){color: var(--color-achivements)}
+#tabs>a:nth-child(4){color: var(--color-badges)}
+#tabs>a::after{
+    display: inline-block;
+    content: "";
+    position: relative;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px 4px 0 0;
+    background: var(--color-cmd);
+    top: -40px;
+}
+#tabs>a:nth-child(2)::after{background: var(--color-itemsets)}
+#tabs>a:nth-child(3)::after{background: var(--color-achivements)}
+#tabs>a:nth-child(4)::after{background: var(--color-badges)}
+
+#page{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: var(--bg);
+    box-shadow: 0 0 5px black;
+    position: relative;
+    z-index: 2;
+    min-height: 100%;
+}
+#search{
+    width: 70%;
+    margin: 40px 15%;
+    background: #242a35;
+    border-radius: 3px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    outline: none;
+    user-select: none;
+    padding: 15px;
+    font-size: 20px;
+    color: #eee;
+}
+#elements{
+    width: 100%;
+    padding-bottom: 10px;
+}
+.element{
+    width: 70%;
+    height: 200px;
+    margin: 20px 15%;
+    border-radius: 10px;
+    outline: none;
+    user-select: none;
+    font-size: 20px;
+    color: #eee;
+    transition: .5s all ease;
+    border: 2px solid #111111;
+    box-shadow: inset 0 0 10px #00000044;
+}
+.element:hover{
+    background: #14171d;
+}
+/*.element::before{
+    content: "";
+    position: relative;
+    top: -50px;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: #0e0e0e;
+    display: inline-block;
+}*/
+.element > *{
+    float: left;
+}
+.element > .cmdinfo{
+    height: calc(100% - 30px);
+    padding: 15px;
+    width: 20%;
+    margin-right: 2%;
+    border-right: 2px solid #111111;
+    background: rgba(170, 170, 170, 0.021);
+}
+.element > .cmdinfo > .cmdname{
+    font-size: 50px;
+    text-align: center; 
+}
+.element > .cmdinfo > .cmdalias{
+    font-size: 40px;
+    color: #aaa;
+    width: 100%;
+    text-align: center;
+}
+.element > .cmdusage{
+    margin-top: 10px;
+    margin-bottom: 3px;
+    width: 75%;
+}
+.element > .cmddesc{
+    color: #aaa;
+    width: 75%;
+}
+</style>
+<script>
+var currentTab = 0; // 0 = Cmds // 1 = Itemsets // 2 = Achivements // 3 = Badges //
+function changeTab(tab){
+    currentTab=parseInt(tab);
+    var searchtabname="Befehlen";
+    if(tab==1)searchtabname="Item Sets";
+    if(tab==2)searchtabname="Achivements";
+    if(tab==3)searchtabname="Abzeichen";
+    $("#search").prop("placeholder","Suche nach "+searchtabname);
+    updateElements.apply();
+}
+if(window.location.toString().includes("#")) {
+    var af = window.location.toString().split("#")[1];
+    if(af.toLowerCase()=="itemsets") changeTab(1);
+    if(af.toLowerCase()=="achivements") changeTab(2);
+    if(af.toLowerCase()=="badges") changeTab(3);
+}
+
+// Ey yo -- maybe noch so nen tab mit sonstigen blogartigen artikeln. z.b. wie runen generiert werden und so. mal sehen. lohlio
+
+//
+
+var element_command_base = '<div id="elements"><div class="element"><div class="cmdinfo"><div class="cmdname">$$cmd$$</div><div class="cmdalias">$$alias$$</div></div>$$usages$$</div></div>'
+  , element_command_usages = '<div class="cmdusage">$$usage_title$$</div><div class="cmddesc">$$usage_text$$</div>'
+
+;
+
+//
+
+var remote_data_url = 'https://raw.githubusercontent.com/Maanex/tudecasinoweb/master/data.json'
+  , remote_data_content = '';
+function updateRemoteData(update){
+    $.get(remote_data_url).done((res, err)=>{ 
+        remote_data_content = JSON.parse(res); 
+        if(update) updateElements.apply();
+    });
+}
+var updateElements = function(){
+    var sbcontent = $("#search").val();
+    var div = $("#elements");
+    div.html("");
+
+    switch(currentTab){
+        case 0:
+            for(var cmd of remote_data_content.commands){
+                if(sbcontent == "" || cmd.cmd.includes(sbcontent) || cmd.alias.includes(sbcontent)){
+                    var add_usages = "";
+                    for(var u of cmd.usages)
+                        add_usages += element_command_usages.replace("$$usage_title$$", u.name).replace("$$usage_text$$", u.text);
+                    
+                    div.html(div.html() + element_command_base
+                        .replace("$$cmd$$", cmd.cmd)
+                        .replace("$$alias$$", cmd.alias)
+                        .replace("$$usages$$", add_usages));
+                }
+            }
+        break;
+        case 1:
+            div.html("Items werden hier wahrscheinlich doch nicht angezeigt, da alle Items dynamisch hinzugefügt/entfernt werden können. Daten auf dieser Website sind allerding statischer Kontent, wird also nicht dynamisch an die tatsächlichen preise angepasst. Der Tab wird in Zukunft wahrscheinlich durch ItemSets ersetzt.");
+        break;
+        case 2:
+            div.html("Achivements sind noch in Bearbeitung");
+        break;
+        case 3:
+            div.html("Abzeichen sind noch in Bearbeitung");
+        break;
+    }
+}
+$("#search").on('input', updateElements);
+
+updateRemoteData(true);
+
+
+</script>
+</html>
