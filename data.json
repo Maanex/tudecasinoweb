@@ -272,23 +272,23 @@
             "alias": "m, bö, börse",
             "usages": [
                 {
-                    "name": "bö price/p [firma]",
+                    "name": "market price/p [firma]",
                     "text": "Zeigt den Preis pro Aktie einer Firma."
                 },
                 {
-                    "name": "bö graph/g [firma]",
+                    "name": "market graph/g [firma]",
                     "text": "Zeigt einen Graphen über die Vergangene Preisschwankung."
                 },
                 {
-                    "name": "bö buy [firma] {menge}",
+                    "name": "market buy [firma] {menge}",
                     "text": "Kauft eine bestimmte Anzahl Aktien von einer Firma."
                 },
                 {
-                    "name": "bö sell [firma] {menge}",
+                    "name": "market sell [firma] {menge}",
                     "text": "Verkauft eine bestimmte Anzahl Aktien von einer Firma."
                 },
                 {
-                    "name": "bö inv/i",
+                    "name": "market inv/i",
                     "text": "Zeigt alle Aktien die du besitzt."
                 }
             ]
